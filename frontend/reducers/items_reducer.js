@@ -4,7 +4,7 @@ const itemsReducer = (oldState={}, action) => {
   let newState = {};
   switch (action.type) {
     case RECIEVE_POKEMON:
-      return action.pokemonAndItems.items;
+      return action.pokemon.items;
     default:
       return oldState;
   }

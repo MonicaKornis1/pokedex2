@@ -13,7 +13,7 @@ window.requestAllPokemon = requestAllPokemon;
 window.selectAllPokemon = selectAllPokemon;
 window.fetchPokemon = fetchPokemon;
 window.requestPokemon = requestPokemon;
-window.recievePokemon = recievePokemon; 
+window.recievePokemon = recievePokemon;
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();

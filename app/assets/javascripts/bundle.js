@@ -1141,10 +1141,10 @@ var receiveAllPokemon = exports.receiveAllPokemon = function receiveAllPokemon(p
   };
 };
 
-var recievePokemon = exports.recievePokemon = function recievePokemon(pokemonAndItems) {
+var recievePokemon = exports.recievePokemon = function recievePokemon(pokemon) {
   return {
     type: RECIEVE_POKEMON,
-    pokemonAndItems: pokemonAndItems
+    pokemon: pokemon
   };
 };
 //action creator return an action object
@@ -1161,8 +1161,8 @@ var requestAllPokemon = exports.requestAllPokemon = function requestAllPokemon()
 
 var requestPokemon = exports.requestPokemon = function requestPokemon(id) {
   return function (dispatch) {
-    return (0, _api_util.fetchPokemon)(id).then(function (pokemonAndItems) {
-      return dispatch(recievePokemon(pokemonAndItems));
+    return (0, _api_util.fetchPokemon)(id).then(function (pokemon) {
+      return dispatch(recievePokemon(pokemon));
     });
   };
 };
@@ -20014,7 +20014,7 @@ var pokemonReducer = function pokemonReducer() {
     case _pokemon_actions.RECIEVE_ALL_POKEMON:
       return action.pokemon;
     case _pokemon_actions.RECIEVE_POKEMON:
-      return action.pokemonAndItems.pokemon;
+      return action.pokemon;
     default:
       return newState;
   }
@@ -25931,7 +25931,7 @@ var itemsReducer = function itemsReducer() {
   var newState = {};
   switch (action.type) {
     case _pokemon_actions.RECIEVE_POKEMON:
-      return action.pokemonAndItems.items;
+      return action.pokemon.items;
     default:
       return oldState;
   }

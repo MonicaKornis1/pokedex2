@@ -11,10 +11,10 @@ export const receiveAllPokemon = (pokemon) => {
   };
 };
 
-export const recievePokemon = (pokemonAndItems) => {
+export const recievePokemon = (pokemon) => {
   return {
     type: RECIEVE_POKEMON,
-    pokemonAndItems
+    pokemon
   };
 };
 //action creator return an action object
@@ -28,7 +28,7 @@ export const requestAllPokemon = () => (dispatch) => {
 //thunk action creator that will dispatch the action recieveALLPokemon if we are able to successfully fetch all the pokemon from the database
 
 export const requestPokemon = (id) => (dispatch) => {
-  return fetchPokemon(id).then((pokemonAndItems) =>
-     dispatch(recievePokemon(pokemonAndItems))
+  return fetchPokemon(id).then((pokemon) =>
+     dispatch(recievePokemon(pokemon))
   );
 };
